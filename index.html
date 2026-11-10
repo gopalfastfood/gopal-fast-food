@@ -1,1 +1,81 @@
-<!-- GOPAL FAST FOOD WEBSITE -->
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gopal Fast Food | Koraon</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#fffaf2;color:#29211b}
+header{background:#a91f16;color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+header h1{font-size:25px}
+header p{font-size:12px;margin-top:4px}
+.cart-btn{background:#ffc52c;color:#251500;border:0;padding:12px 18px;border-radius:25px;font-weight:bold;cursor:pointer}
+.hero{text-align:center;padding:55px 15px;background:linear-gradient(120deg,#64140e,#d94b1e);color:white}
+.hero h2{font-size:34px;margin-bottom:12px}
+.hero p{font-size:17px}
+.hero a{display:inline-block;margin-top:20px;background:#ffc52c;color:#241500;padding:13px 25px;border-radius:25px;text-decoration:none;font-weight:bold}
+.section{padding:35px 5%}
+.section h2{text-align:center;color:#a91f16;margin-bottom:25px;font-size:27px}
+.categories{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:25px}
+.categories button{padding:10px 17px;border:1px solid #a91f16;border-radius:22px;background:white;color:#a91f16;cursor:pointer}
+.categories button.active{background:#a91f16;color:white}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.item{background:white;border-radius:15px;overflow:hidden;box-shadow:0 3px 13px #00000012}
+.foodpic{height:145px;display:grid;place-items:center;background:#fff0d9;font-size:75px}
+.details{padding:15px}
+.details h3{margin-bottom:8px}
+.price{color:#a91f16;font-weight:bold;font-size:18px}
+.add{width:100%;padding:11px;margin-top:12px;border:0;border-radius:8px;background:#a91f16;color:white;font-weight:bold;cursor:pointer}
+.cart{background:white;padding:20px;border-radius:12px;max-width:650px;margin:auto;box-shadow:0 3px 12px #00000012}
+.cart-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #eee;gap:10px}
+.cart-row button{border:0;background:#a91f16;color:white;padding:5px 9px;border-radius:5px}
+.total{text-align:right;font-size:21px;font-weight:bold;margin-top:20px}
+.order{width:100%;padding:14px;background:#159447;color:white;border:0;border-radius:9px;font-size:17px;font-weight:bold;margin-top:18px;cursor:pointer}
+footer{text-align:center;background:#291c17;color:white;padding:25px;margin-top:35px}
+footer p{margin:8px}
+</style>
+</head>
+<body>
+
+<header>
+ <div>
+  <h1>🍔 GOPAL FAST FOOD</h1>
+  <p>स्वाद ऐसा, जो दिल जीत ले!</p>
+ </div>
+ <button class="cart-btn" onclick="document.getElementById('cart').scrollIntoView()">🛒 Cart (<span id="count">0</span>)</button>
+</header>
+
+<section class="hero">
+ <h2>Welcome to Gopal Fast Food</h2>
+ <p>स्वादिष्ट खाना • अच्छी क्वालिटी • शानदार स्वाद</p>
+ <a href="#menu">Order Now</a>
+</section>
+
+<section class="section" id="menu">
+ <h2>🍽️ हमारा मेन्यू</h2>
+ <div class="categories">
+  <button class="active" onclick="filterMenu('All',this)">All</button>
+  <button onclick="filterMenu('Burger',this)">Burger</button>
+  <button onclick="filterMenu('Pizza',this)">Pizza</button>
+  <button onclick="filterMenu('Chinese',this)">Chinese</button>
+  <button onclick="filterMenu('Snacks',this)">Snacks</button>
+  <button onclick="filterMenu('Drinks',this)">Drinks</button>
+ </div>
+ <div class="menu" id="menuItems"></div>
+</section>
+
+<section class="section" id="cart">
+ <h2>🛒 आपका Cart</h2>
+ <div class="cart">
+  <div id="cartItems">अभी आपका Cart खाली है।</div>
+  <div class="total">Total: ₹<span id="total">0</span></div>
+  <button class="order" onclick="placeOrder()">WhatsApp पर Order करें</button>
+ </div>
+</section>
+
+<footer>
+ <h2>GOPAL FAST FOOD</h2>
+ <p>आपका अपना फास्ट फूड सेंटर</p>
+ <p>📍 Koraon, Prayagraj, Uttar Pradesh</p>
+ <p>स्वा<!-- GOPAL FAST FOOD WEBSITE -->
