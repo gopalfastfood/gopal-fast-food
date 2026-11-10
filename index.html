@@ -3,89 +3,256 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gopal Fast Food | Devsar Market</title>
+<title>Gopal Fast Food | Singrauli</title>
+<meta name="description" content="Gopal Fast Food - Delicious Burger, Pizza, Chowmein, Momos and more at Devsar Market, Singrauli.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#fffaf3;color:#222}
-header{background:#171717;color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
-.logo{font-size:25px;font-weight:bold;color:#ffb000}
-header a{color:white;text-decoration:none}
-.hero{padding:65px 20px;text-align:center;background:linear-gradient(#0009,#0009),url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1400') center/cover;color:white}
-.hero h1{font-size:42px;margin-bottom:12px}
-.hero p{font-size:18px;margin-bottom:22px}
-.btn{display:inline-block;background:#ff9f00;color:#111;padding:12px 22px;border-radius:7px;text-decoration:none;font-weight:bold;border:0;cursor:pointer}
-section{padding:35px 5%}
-h2{text-align:center;margin-bottom:25px;font-size:28px}
-.categories{text-align:center;margin-bottom:25px}
-.categories button{padding:9px 15px;margin:5px;border:1px solid #ff9f00;background:white;border-radius:20px;cursor:pointer}
-.categories button:hover{background:#ff9f00}
-.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
-.item{background:white;border-radius:12px;overflow:hidden;box-shadow:0 3px 12px #0001}
-.item img{width:100%;height:165px;object-fit:cover}
-.item-content{padding:15px}
-.item h3{margin-bottom:8px}
-.price{font-weight:bold;color:#e77d00;margin:10px 0}
-.item button{width:100%}
-.cart{background:#fff;padding:20px;border-radius:12px;box-shadow:0 3px 12px #0001;max-width:700px;margin:auto}
-.cart-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #ddd}
-.cart-row button{padding:3px 9px;margin:0 3px}
-input,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ccc;border-radius:6px;font-size:15px}
-footer{background:#171717;color:white;text-align:center;padding:25px;line-height:2}
-footer a{color:#ffb000}
-@media(max-width:600px){.hero h1{font-size:30px}header{gap:12px}}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#fffaf3;color:#242424}
+header{background:#171717;color:white;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.logo{font-size:24px;font-weight:900;color:#ffb52e}
+nav a{color:white;text-decoration:none;margin-left:15px;font-weight:bold}
+.hero{min-height:390px;display:flex;align-items:center;justify-content:center;text-align:center;color:white;padding:45px 20px;background:linear-gradient(#0009,#0009),url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1400&q=85') center/cover}
+.hero h1{font-size:clamp(34px,6vw,58px);margin-bottom:15px}
+.hero p{font-size:19px;margin-bottom:25px}
+.btn{display:inline-block;border:0;background:#ffad20;color:#171717;padding:12px 22px;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer;text-decoration:none}
+.btn:hover{background:#ffc65d}
+.section{padding:45px 5%}
+.heading{text-align:center;font-size:30px;margin-bottom:10px}
+.subheading{text-align:center;color:#777;margin-bottom:25px}
+.categories{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:25px 0}
+.categories button{background:white;border:1px solid #ffad20;padding:10px 17px;border-radius:25px;cursor:pointer;font-weight:bold}
+.categories button.active,.categories button:hover{background:#ffad20}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.food-card{background:white;border-radius:13px;overflow:hidden;box-shadow:0 4px 15px #00000012}
+.food-card img{width:100%;height:180px;object-fit:cover;display:block;background:#eee}
+.food-info{padding:16px}
+.food-info h3{font-size:19px;margin-bottom:8px}
+.food-info p{font-size:13px;color:#777;min-height:30px}
+.price{font-size:21px;font-weight:bold;color:#e47700;margin:12px 0}
+.food-info .btn{width:100%}
+.cart-box{max-width:800px;margin:auto;background:white;padding:22px;border-radius:13px;box-shadow:0 4px 15px #00000012}
+.cart-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid #eee}
+.qty button{padding:5px 11px;border:0;background:#ffad20;border-radius:5px;cursor:pointer;font-size:16px}
+.total{font-size:24px;font-weight:bold;text-align:right;margin:22px 0;color:#d66d00}
+.form-title{margin:20px 0 10px}
+input,textarea{width:100%;padding:13px;margin:7px 0;border:1px solid #ddd;border-radius:7px;font-size:15px;font-family:inherit}
+textarea{height:85px;resize:vertical}
+.full{width:100%;margin-top:10px}
+.empty{text-align:center;color:#777;padding:20px}
+.about{background:#fff0d8;text-align:center}
+.about p{max-width:700px;margin:12px auto;line-height:1.7}
+footer{background:#171717;color:white;text-align:center;padding:30px 15px;line-height:2}
+footer a{color:#ffb52e;text-decoration:none}
+.small{font-size:13px;color:#bbb;margin-top:10px}
+@media(max-width:600px){
+header{justify-content:center;text-align:center}
+nav a{margin:0 7px;font-size:14px}
+.hero{min-height:330px}
+.section{padding:35px 4%}
+.menu{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.food-card img{height:125px}
+.food-info{padding:11px}
+.food-info h3{font-size:16px}
+.food-info p{font-size:12px}
+.food-info .btn{font-size:13px;padding:10px 5px}
+.price{font-size:18px}
+.cart-box{padding:15px}
+}
 </style>
 </head>
+
 <body>
 
 <header>
 <div class="logo">🍔 GOPAL FAST FOOD</div>
-<a href="#menu">Our Menu</a>
-<a href="#cart">My Cart</a>
+<nav>
+<a href="#home">Home</a>
+<a href="#menu">Menu</a>
+<a href="#cart">Cart 🛒</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
-<div class="hero">
+<section class="hero" id="home">
+<div>
 <h1>Welcome to Gopal Fast Food</h1>
-<p>Delicious Food, Fresh Taste & Best Quality!</p>
-<a class="btn" href="#menu">Order Now</a>
+<p>Fresh Food • Delicious Taste • Best Quality</p>
+<a href="#menu" class="btn">Explore Our Menu</a>
+</div>
+</section>
+
+<section class="section" id="menu">
+<h2 class="heading">🍽️ Our Food Menu</h2>
+<p class="subheading">Choose your favourite food and order now!</p>
+
+<div class="categories" id="categories">
+<button class="active" data-cat="All">All</button>
+<button data-cat="Burger">Burger</button>
+<button data-cat="Pizza">Pizza</button>
+<button data-cat="Chinese">Chinese</button>
+<button data-cat="Momos">Momos</button>
+<button data-cat="Snacks">Snacks</button>
+<button data-cat="Drinks">Drinks</button>
 </div>
 
-<section id="menu">
-<h2>🍽️ Our Delicious Menu</h2>
-<div class="categories">
-<button onclick="filterMenu('All')">All</button>
-<button onclick="filterMenu('Burger')">Burger</button>
-<button onclick="filterMenu('Pizza')">Pizza</button>
-<button onclick="filterMenu('Chinese')">Chinese</button>
-<button onclick="filterMenu('Snacks')">Snacks</button>
-<button onclick="filterMenu('Drinks')">Drinks</button>
-</div>
 <div class="menu" id="menuItems"></div>
 </section>
 
-<section id="cart">
-<h2>🛒 Your Shopping Cart</h2>
-<div class="cart">
-<div id="cartItems">Your cart is empty.</div>
-<h3 id="total" style="margin:18px 0">Total: ₹0</h3>
-<h3>Customer Details</h3>
-<input id="customer" placeholder="Enter Your Name">
-<input id="mobile" type="tel" placeholder="Mobile Number">
-<textarea id="address" placeholder="Delivery Address"></textarea>
-<button class="btn" style="width:100%" onclick="orderNow()">Order on WhatsApp</button>
+<section class="section" id="cart">
+<h2 class="heading">🛒 Your Cart</h2>
+<p class="subheading">Check your items and total bill</p>
+
+<div class="cart-box">
+<div id="cartItems" class="empty">Your cart is empty. Please select food from the menu.</div>
+<div class="total" id="total">Total: ₹0</div>
+
+<h3 class="form-title">Customer Details</h3>
+<input id="customerName" type="text" placeholder="Enter your full name">
+<input id="customerMobile" type="tel" maxlength="10" placeholder="Enter 10 digit mobile number">
+<textarea id="customerAddress" placeholder="Enter your complete delivery address"></textarea>
+
+<button class="btn full" onclick="placeOrder()">📲 Order on WhatsApp</button>
+<p style="font-size:12px;color:#777;margin-top:12px;text-align:center">
+Your order details will open in WhatsApp. Please press Send there to confirm your order.
+</p>
 </div>
 </section>
 
-<footer>
-<h2>GOPAL FAST FOOD</h2>
+<section class="section about">
+<h2 class="heading">❤️ About Gopal Fast Food</h2>
+<p>Welcome to Gopal Fast Food! We serve delicious food with great taste and quality. Choose your favourite items from our menu and order easily through WhatsApp.</p>
+</section>
+
+<footer id="contact">
+<h2>🍔 GOPAL FAST FOOD</h2>
 <p>📍 Devsar Market, Singrauli, Madhya Pradesh</p>
 <p>📞 <a href="tel:9119977013">9119977013</a></p>
-<p>Fresh Food | Best Taste | Happy Customers</p>
-<p>© 2026 Gopal Fast Food. All Rights Reserved.</p>
+<p>WhatsApp Orders Available</p>
+<p class="small">© 2026 Gopal Fast Food. All Rights Reserved.</p>
 </footer>
 
 <script>
-const products=[
-{name:"Veg Burger",price:50,cat:"Burger",img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600"},
-{name:"Cheese Burger",price:80,cat:"Burger",img:"https://images.unsplash.com/photo-1553979459-d2229ba7433a?w=600"},
-{name:"Margherita Pizza",price:120,cat:"Pizza",img:"https://images.unsplash.com/photo-1579751626657-72bc17010498?w=600"},
-{name:"Cheese Pizza",price:180,cat:"Pizza",img:"https://image
+const WHATSAPP_NUMBER = "919119977013";
+
+const products = [
+{name:"Veg Burger",cat:"Burger",price:50,desc:"Fresh and tasty veg burger",img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80"},
+{name:"Cheese Burger",cat:"Burger",price:80,desc:"Delicious cheese burger",img:"https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=600&q=80"},
+{name:"Margherita Pizza",cat:"Pizza",price:120,desc:"Classic cheese pizza",img:"https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=600&q=80"},
+{name:"Cheese Pizza",cat:"Pizza",price:180,desc:"Loaded with cheese",img:"https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80"},
+{name:"Veg Chowmein",cat:"Chinese",price:60,desc:"Hot and spicy noodles",img:"https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=600&q=80"},
+{name:"Hakka Noodles",cat:"Chinese",price:80,desc:"Delicious Hakka noodles",img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80"},
+{name:"Veg Manchurian",cat:"Chinese",price:90,desc:"Spicy Manchurian",img:"https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=600&q=80"},
+{name:"Veg Momos",cat:"Momos",price:60,desc:"Steamed vegetable momos",img:"https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80"},
+{name:"Fried Momos",cat:"Momos",price:80,desc:"Crispy fried momos",img:"https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&w=600&q=80"},
+{name:"French Fries",cat:"Snacks",price:50,desc:"Crispy golden fries",img:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80"},
+{name:"Samosa",cat:"Snacks",price:15,desc:"Fresh crispy samosa",img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80"},
+{name:"Cold Drink",cat:"Drinks",price:30,desc:"Chilled soft drink",img:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=600&q=80"},
+{name:"Milk Shake",cat:"Drinks",price:70,desc:"Thick and creamy shake",img:"https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=80"}
+];
+
+let cart = [];
+
+function showMenu(category="All"){
+const list = category==="All" ? products : products.filter(p=>p.cat===category);
+document.getElementById("menuItems").innerHTML = list.map(p=>`
+<div class="food-card">
+<img src="${p.img}" alt="${p.name}" loading="lazy"
+onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Food+Photo'">
+<div class="food-info">
+<h3>${p.name}</h3>
+<p>${p.desc}</p>
+<div class="price">₹${p.price}</div>
+<button class="btn" onclick="addToCart('${p.name}')">Add to Cart +</button>
+</div>
+</div>`).join("");
+}
+
+document.getElementById("categories").addEventListener("click",function(e){
+if(e.target.tagName!=="BUTTON")return;
+document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+e.target.classList.add("active");
+showMenu(e.target.dataset.cat);
+});
+
+function addToCart(name){
+const product=products.find(p=>p.name===name);
+const existing=cart.find(p=>p.name===name);
+if(existing){existing.qty++}
+else{cart.push({...product,qty:1})}
+updateCart();
+}
+
+function changeQty(name,change){
+const item=cart.find(p=>p.name===name);
+if(!item)return;
+item.qty+=change;
+if(item.qty<=0){cart=cart.filter(p=>p.name!==name)}
+updateCart();
+}
+
+function updateCart(){
+const box=document.getElementById("cartItems");
+if(cart.length===0){
+box.innerHTML="Your cart is empty. Please select food from the menu.";
+box.className="empty";
+}else{
+box.className="";
+box.innerHTML=cart.map(p=>`
+<div class="cart-row">
+<div><b>${p.name}</b><br>₹${p.price} × ${p.qty} = ₹${p.price*p.qty}</div>
+<div class="qty">
+<button onclick="changeQty('${p.name}',-1)">−</button>
+<b>${p.qty}</b>
+<button onclick="changeQty('${p.name}',1)">+</button>
+</div>
+</div>`).join("");
+}
+const total=cart.reduce((sum,p)=>sum+p.price*p.qty,0);
+document.getElementById("total").innerText="Total: ₹"+total;
+}
+
+function placeOrder(){
+if(cart.length===0){
+alert("Please add food items to your cart first.");
+return;
+}
+
+const name=document.getElementById("customerName").value.trim();
+const mobile=document.getElementById("customerMobile").value.trim();
+const address=document.getElementById("customerAddress").value.trim();
+
+if(!name||!mobile||!address){
+alert("Please enter your name, mobile number and address.");
+return;
+}
+if(!/^[6-9][0-9]{9}$/.test(mobile)){
+alert("Please enter a valid 10 digit Indian mobile number.");
+return;
+}
+
+const total=cart.reduce((sum,p)=>sum+p.price*p.qty,0);
+let message="🍔 *NEW ORDER - GOPAL FAST FOOD*%0A";
+message+="--------------------------%0A";
+message+="*Customer:* "+name+"%0A";
+message+="*Mobile:* "+mobile+"%0A";
+message+="*Address:* "+address+"%0A%0A";
+message+="*ORDER DETAILS*%0A";
+
+cart.forEach(p=>{
+message+=p.name+" x "+p.qty+" = Rs."+p.price*p.qty+"%0A";
+});
+
+message+="%0A*TOTAL BILL: Rs."+total+"*%0A";
+message+="--------------------------%0A";
+message+="Please confirm my order.";
+
+const url="https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(decodeURIComponent(message));
+window.open(url,"_blank");
+}
+
+showMenu();
+updateCart();
+</script>
+</body>
+</html>
