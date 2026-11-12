@@ -114,11 +114,13 @@ nav a{margin:0 7px;font-size:14px}
 <input id="customerName" type="text" placeholder="Enter your full name">
 <input id="customerMobile" type="tel" maxlength="10" placeholder="Enter 10 digit mobile number">
 <textarea id="customerAddress" placeholder="Enter your complete delivery address"></textarea>
-<button class="btn full" id="locationBtn">
+<button class="btn full" type="button" id="locationBtn">
   📍 Share My Location
 </button>
+<p id="locationStatus" style="font-size:13px;color:#777;margin-top:8px;text-align:center">
+  Location not shared yet (optional)
 </p>
-<button class="btn full" onclick="placeOrder()">📲 Order on WhatsApp</button>
+<button class="btn full" type="button" onclick="placeOrder()">📲 Order on WhatsApp</button>
 <p style="font-size:12px;color:#777;margin-top:12px;text-align:center">
 Your order details will open in WhatsApp. Please press Send there to confirm your order.
 </p>
@@ -180,6 +182,7 @@ onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Food+Phot
 
 
 let customerLocation = "";
+
 document.getElementById("locationBtn").addEventListener("click", function() {
   const status = document.getElementById("locationStatus");
 
@@ -272,7 +275,11 @@ let message="🍔 *NEW ORDER - GOPAL FAST FOOD*%0A";
 message+="--------------------------%0A";
 message+="*Customer:* "+name+"%0A";
 message+="*Mobile:* "+mobile+"%0A";
-message+="*Address:* "+address+"%0A%0A";
+message+="*Address:* "+address+"%0A";
+if(customerLocation){
+  message+="*Customer Location:* "+customerLocation+"%0A";
+}
+message+="%0A";
 message+="*ORDER DETAILS*%0A";
 
 cart.forEach(p=>{
