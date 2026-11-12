@@ -314,15 +314,24 @@ message+="--------------------------%0A";
 message+="Please confirm my order.";
 
 const url="https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(decodeURIComponent(message));
- setTimeout(function(){
-    const sent = confirm("Kya aapne WhatsApp par order Send kar diya?");
+const order = {
+    id: Date.now(),
+    date: new Date().toLocaleString("en-IN"),
+    name: name,
+    mobile: mobile,
+    address: address,
+    items: cart.map(p => ({
+        name: p.name,
+        price: p.price,
+        qty: p.qty
+    })),
+    total: total,
+    status: "ऑर्डर बनाया गया"
+};
 
-    if(sent){
-        cart = [];
-        customerLocation = "";
-        updateCart();
-    }
-}, 1500);
+let orders = JSON.parse(localStorage.getItem("gopalOrders") || "[]");
+orders.unshift(order);
+localStorage.setItem("gopalOrders", JSON.stringify(orders));
 window.open(url,"_blank");
 }
 
