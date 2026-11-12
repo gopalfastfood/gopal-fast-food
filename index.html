@@ -314,6 +314,15 @@ message+="--------------------------%0A";
 message+="Please confirm my order.";
 
 const url="https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(decodeURIComponent(message));
+ setTimeout(function(){
+    const sent = confirm("Kya aapne WhatsApp par order Send kar diya?");
+
+    if(sent){
+        cart = [];
+        customerLocation = "";
+        updateCart();
+    }
+}, 1500);
 window.open(url,"_blank");
 }
 
