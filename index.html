@@ -166,18 +166,30 @@ const products = [
 let cart = [];
 
 function showMenu(category="All"){
-const list = category==="All" ? products : products.filter(p=>p.cat===category);
-document.getElementById("menuItems").innerHTML = list.map(p=>`
-<div class="food-card">
-<img src="${p.img}" alt="${p.name}" loading="lazy"
-onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Food+Photo'">
-<div class="food-info">
-<h3>${p.name}</h3>
-<p>${p.desc}</p>
-<div class="price">₹${p.price}</div>
-<button class="btn" onclick="addToCart('${p.name}')">Add to Cart +</button>
-</div>
-</div>`).join("");
+    const list = category==="All"
+        ? products
+        : products.filter(p=>p.cat===category);
+
+    document.getElementById("menuItems").innerHTML = list.map(p=>`
+        <div class="food-card">
+            <img src="${p.img}" alt="${p.name}" loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Food+Photo'">
+
+            <div class="food-info">
+                <h3>${p.name}</h3>
+                <p>${p.desc}</p>
+                <div class="price">₹${p.price}</div>
+
+                <button class="btn add-cart-btn"
+                data-name="${p.name}"
+                onclick="addToCart('${p.name}')">
+                    Add to Cart +
+                </button>
+            </div>
+        </div>
+    `).join("");
+
+    updateCart();
 }
 
 let customerLocation = "";
