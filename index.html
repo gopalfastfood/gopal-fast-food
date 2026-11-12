@@ -184,24 +184,33 @@ onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Food+Phot
 </div>`).join("");
 }
 
-  document.getElementById("locationBtn").addEventListener("click", function() {
 
-  alert("Location button is working!");
+let customerLocation = "";
+
+document.getElementById("locationBtn").addEventListener("click", function() {
+
+  const status = document.getElementById("locationStatus");
+
+  status.innerText = "Getting location...";
 
   navigator.geolocation.getCurrentPosition(
     function(position) {
-      alert("Location received!");
 
-      console.log(position.coords.latitude);
-      console.log(position.coords.longitude);
+      const lat = position.coords.latitude;
+      const lng = position.coords.longitude;
+
+      customerLocation =
+        "https://www.google.com/maps?q=" + lat + "," + lng;
+
+      status.innerText = "✅ Location received!";
     },
     function(error) {
-      alert("Location Error: " + error.message);
+      status.innerText = "Location error: " + error.message;
     }
   );
 
 });
-  
+
 document.getElementById("categories").addEventListener("click",function(e){
 if(e.target.tagName!=="BUTTON")return;
 document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
