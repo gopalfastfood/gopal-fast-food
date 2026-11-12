@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
@@ -271,6 +271,11 @@ return;
 }
 
 const total=cart.reduce((sum,p)=>sum+p.price*p.qty,0);
+
+  if(total < 100){
+    alert("Minimum order amount ₹100 required. Please add more items.");
+    return;
+}
 let message="🍔 *NEW ORDER - GOPAL FAST FOOD*%0A";
 message+="--------------------------%0A";
 message+="*Customer:* "+name+"%0A";
