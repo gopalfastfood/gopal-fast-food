@@ -114,12 +114,9 @@ nav a{margin:0 7px;font-size:14px}
 <input id="customerName" type="text" placeholder="Enter your full name">
 <input id="customerMobile" type="tel" maxlength="10" placeholder="Enter 10 digit mobile number">
 <textarea id="customerAddress" placeholder="Enter your complete delivery address"></textarea>
-<button class="btn full" onclick="getCustomerLocation()">
+<button class="btn full" id="locationBtn">
   📍 Share My Location
 </button>
-
-<p id="locationStatus" style="font-size:13px;color:green;text-align:center;margin-top:8px">
-  Location not shared yet
 </p>
 <button class="btn full" onclick="placeOrder()">📲 Order on WhatsApp</button>
 <p style="font-size:12px;color:#777;margin-top:12px;text-align:center">
@@ -140,7 +137,13 @@ Your order details will open in WhatsApp. Please press Send there to confirm you
 <p>WhatsApp Orders Available</p>
 <p class="small">© 2026 Gopal Fast Food. All Rights Reserved.</p>
 </footer>
+  
+showMenu();
+updateCart();
 
+// नया Location Test Code यहाँ लगाओ
+
+</script>
 <script>
 const WHATSAPP_NUMBER = "9119977013";
 const CALLING_NUMBER = "7753884321";
@@ -181,6 +184,24 @@ onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Food+Phot
 </div>`).join("");
 }
 
+  document.getElementById("locationBtn").addEventListener("click", function() {
+
+  alert("Location button is working!");
+
+  navigator.geolocation.getCurrentPosition(
+    function(position) {
+      alert("Location received!");
+
+      console.log(position.coords.latitude);
+      console.log(position.coords.longitude);
+    },
+    function(error) {
+      alert("Location Error: " + error.message);
+    }
+  );
+
+});
+  
 document.getElementById("categories").addEventListener("click",function(e){
 if(e.target.tagName!=="BUTTON")return;
 document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
